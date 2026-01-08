@@ -24,7 +24,7 @@ requirements:
     - pkg-config
     - meson
     - jinja2
-    - python <3.13 # pins python to compitable version for meson
+    - python <3.13 # pins python to compatible version for meson
   host:
     - fast_float
     - lcms2
