@@ -11,7 +11,7 @@ source:
   sha256: 4efe1c8d4da3c61295eb5fdfa50e6037409d8425eb3c15dd86788679c4ce59ee
 
 build:
-  number: 0
+  number: 1
   skip: win
 
 requirements:
@@ -24,11 +24,13 @@ requirements:
     - pkg-config
     - meson
     - jinja2
+    - python <3.13 # pins python to compatible version for meson
   host:
     - fast_float
     - lcms2
     - markupsafe
     - libvulkan-headers
+    - libvulkan-loader
     - shaderc
     - xxhash
   run_exports:
