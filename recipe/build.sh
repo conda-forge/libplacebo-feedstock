@@ -24,7 +24,7 @@ meson setup build \
     -Dvulkan=enabled \
     -Dshaderc=enabled \
     -Dlcms=enabled \
-    -Ddovi=disabled \
+    -Ddovi=enabled \
     -Dxxhash=enabled \
     -Dvk-proc-addr=enabled \
     ${MESON_ARGS}
