@@ -11,8 +11,7 @@ source:
   sha256: 4efe1c8d4da3c61295eb5fdfa50e6037409d8425eb3c15dd86788679c4ce59ee
 
 build:
-  number: 2
-  skip: win
+  number: 4
 
 requirements:
   build:
@@ -45,7 +44,7 @@ tests:
       lib:
         - libplacebo
   - script:
-      - if pkg-config --exists libplacebo; then echo "Libplacebo found"; else echo "Libplacebo not found"; exit 1; fi
+      - pkg-config --exists libplacebo
     requirements:
       run:
         - pkg-config
