@@ -11,7 +11,7 @@ source:
   sha256: 4efe1c8d4da3c61295eb5fdfa50e6037409d8425eb3c15dd86788679c4ce59ee
 
 build:
-  number: 2
+  number: 3
   skip: win
 
 requirements:
@@ -35,7 +35,7 @@ requirements:
     - shaderc
     - xxhash
   run_exports:
-    - ${{ pin_subpackage('libplacebo', upper_bound='x.x.x') }}
+    - ${{ pin_subpackage('libplacebo', upper_bound='x.x') }}
   ignore_run_exports:
     from_package:
       - xxhash
