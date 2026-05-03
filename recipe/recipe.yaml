@@ -1,37 +1,39 @@
 context:
   name: libplacebo
-  version: "7.351.0"
+  version: "7.360.1"
+  build_number: 0
 
 package:
   name: ${{ name|lower }}
   version: ${{ version }}
 
 source:
-  url: https://code.videolan.org/videolan/libplacebo/-/archive/v${{ version }}/libplacebo-v${{ version }}.tar.gz
-  sha256: 4efe1c8d4da3c61295eb5fdfa50e6037409d8425eb3c15dd86788679c4ce59ee
+  url: https://github.com/haasn/libplacebo/archive/refs/tags/v${{ version }}.tar.gz
+  sha256: d05fdf90bea2f629eaa2d115e909fd356388ac639e54f77b87a018a6d76224bd
 
 build:
-  number: 3
-  skip: win
+  number: ${{ build_number }}
+  skip:
+    - win
 
 requirements:
   build:
-    - ${{ compiler('c') }}
-    - ${{ stdlib('c') }}
-    - ${{ compiler('cxx') }}
-    - ninja
     - cmake
-    - pkg-config
-    - meson
+    - ${{ compiler("c") }}
+    - ${{ compiler("cxx") }}
+    - ${{ stdlib("c") }}
     - jinja2
+    - meson
+    - ninja
+    - pkg-config
     - python <3.13 # pins python to compatible version for meson
   host:
-    - libdovi
     - fast_float
     - lcms2
-    - markupsafe
+    - libdovi
     - libvulkan-headers
     - libvulkan-loader
+    - markupsafe
     - shaderc
     - xxhash
   run_exports:
@@ -42,10 +44,14 @@ requirements:
 
 tests:
   - package_contents:
+      include:
+        - libplacebo/**
       lib:
         - libplacebo
+      files:
+        - lib/pkgconfig/libplacebo.pc
   - script:
-      - if pkg-config --exists libplacebo; then echo "Libplacebo found"; else echo "Libplacebo not found"; exit 1; fi
+      - pkg-config --exists libplacebo
     requirements:
       run:
         - pkg-config
@@ -59,6 +65,7 @@ about:
     mpv rewritten as an independent library. It provides robust and efficient
     GPU rendering for a variety of multimedia applications.
   homepage: https://code.videolan.org/videolan/libplacebo
+  repository: https://code.videolan.org/videolan/libplacebo
 
 extra:
   recipe-maintainers:
