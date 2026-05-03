@@ -35,7 +35,7 @@ requirements:
     - shaderc
     - xxhash
   run_exports:
-    - ${{ pin_subpackage('libplacebo', upper_bound='x.x.x') }}
+    - ${{ pin_subpackage('libplacebo', upper_bound='x.x') }}
   ignore_run_exports:
     from_package:
       - xxhash
