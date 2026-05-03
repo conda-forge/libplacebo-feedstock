@@ -1,6 +1,7 @@
 context:
   name: libplacebo
   version: "7.360.1"
+  build_number: 0
 
 package:
   name: ${{ name|lower }}
@@ -11,27 +12,28 @@ source:
   sha256: d05fdf90bea2f629eaa2d115e909fd356388ac639e54f77b87a018a6d76224bd
 
 build:
-  number: 0
-  skip: win
+  number: ${{ build_number }}
+  skip:
+    - win
 
 requirements:
   build:
-    - ${{ compiler('c') }}
-    - ${{ stdlib('c') }}
-    - ${{ compiler('cxx') }}
-    - ninja
     - cmake
-    - pkg-config
-    - meson
+    - ${{ compiler("c") }}
+    - ${{ compiler("cxx") }}
+    - ${{ stdlib("c") }}
     - jinja2
+    - meson
+    - ninja
+    - pkg-config
     - python <3.13 # pins python to compatible version for meson
   host:
-    - libdovi
     - fast_float
     - lcms2
-    - markupsafe
+    - libdovi
     - libvulkan-headers
     - libvulkan-loader
+    - markupsafe
     - shaderc
     - xxhash
   run_exports:
@@ -59,6 +61,7 @@ about:
     mpv rewritten as an independent library. It provides robust and efficient
     GPU rendering for a variety of multimedia applications.
   homepage: https://code.videolan.org/videolan/libplacebo
+  repository: https://code.videolan.org/videolan/libplacebo
 
 extra:
   recipe-maintainers:
