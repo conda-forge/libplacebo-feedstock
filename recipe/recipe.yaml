@@ -44,10 +44,14 @@ requirements:
 
 tests:
   - package_contents:
+      include:
+        - libplacebo/**
       lib:
         - libplacebo
+      files:
+        - lib/pkgconfig/libplacebo.pc
   - script:
-      - if pkg-config --exists libplacebo; then echo "Libplacebo found"; else echo "Libplacebo not found"; exit 1; fi
+      - pkg-config --exists libplacebo
     requirements:
       run:
         - pkg-config
