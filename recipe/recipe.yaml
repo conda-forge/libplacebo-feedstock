@@ -1,7 +1,7 @@
 context:
   name: libplacebo
   version: "7.360.1"
-  build_number: 1
+  build_number: 2
 
 package:
   name: ${{ name|lower }}
