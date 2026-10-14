@@ -21,7 +21,7 @@ lcms2:
 libdovi:
 - '3'
 shaderc:
-- '2026.3'
+- '2026.4'
 target_platform:
 - linux-aarch64
 xxhash:
