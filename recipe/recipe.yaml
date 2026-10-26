@@ -1,7 +1,7 @@
 context:
   name: libplacebo
-  version: "7.360.1"
-  build_number: 2
+  version: "7.387.0"
+  build_number: 0
 
 package:
   name: ${{ name|lower }}
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://github.com/haasn/libplacebo/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: d05fdf90bea2f629eaa2d115e909fd356388ac639e54f77b87a018a6d76224bd
+  sha256: f9e62d3774a9c4cfd198ec3abaa88294aaade2e31c04d5ab02bcf4abc98b1df5
 
 build:
   number: ${{ build_number }}
